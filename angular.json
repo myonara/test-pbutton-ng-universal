@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/test-pbutton-ng-universal",
+            "outputPath": "dist/test-pbutton-ng-universal/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -94,6 +94,59 @@
             ],
             "scripts": []
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/test-pbutton-ng-universal/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "test-pbutton-ng-universal:build:development",
+              "serverTarget": "test-pbutton-ng-universal:server:development"
+            },
+            "production": {
+              "browserTarget": "test-pbutton-ng-universal:build:production",
+              "serverTarget": "test-pbutton-ng-universal:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "test-pbutton-ng-universal:build:production",
+              "serverTarget": "test-pbutton-ng-universal:server:production"
+            },
+            "development": {
+              "browserTarget": "test-pbutton-ng-universal:build:development",
+              "serverTarget": "test-pbutton-ng-universal:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
