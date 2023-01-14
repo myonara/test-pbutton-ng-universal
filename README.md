@@ -2,6 +2,7 @@
 
 ## Reproducing the pButton issue
 * git clone https://github.com/myonara/test-pbutton-ng-universal.git
+* npm install
 * npm run dev:ssr
 * navigate to http://localhost:4200 
 * error is occuring on the console.
