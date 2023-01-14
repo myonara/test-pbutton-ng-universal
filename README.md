@@ -1,5 +1,27 @@
 # TestPbuttonNgUniversal
 
+## Reproducing the pButton issue
+* git clone https://github.com/myonara/test-pbutton-ng-universal.git
+* npm run dev:ssr
+* navigate to http://localhost:4200 
+* error is occuring on the console.
+
+## Setup
+* This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.1.
+* ng generate module app-routing --flat --module=app
+* ng g component start
+* (changed app.component.html added routing and an a-link to start, changed app-routing.module.ts)
+* npm install primeng primeicons --save
+* (changed a-link to button/pButton)
+* ng add @nguniversal/express-engine
+* (Testing with npm run dev:ssr)
+* error occuring in the console during opening http://localhost:4200 
+
+
+
+
+# TestPbuttonNgUniversal (Angular)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.1.
 
 ## Development server
